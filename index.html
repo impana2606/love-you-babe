@@ -1,134 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Love You My Strawberry 🍓</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-
-<style>
-body{
-    margin:0;
-    font-family:'Playfair Display', serif;
-    background:#ffd6e7;
-}
-
-/* PASSWORD SCREEN */
-#lock{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-#lock h1{
-    color:#ff2f6e;
-    font-size:34px;
-    margin-bottom:20px;
-}
-
-#lock input{
-    font-size:20px;
-    padding:14px;
-    width:80%;
-    max-width:320px;
-    border-radius:18px;
-    border:none;
-    outline:none;
-    text-align:center;
-}
-
-#lock button{
-    margin-top:20px;
-    font-size:20px;
-    padding:12px 35px;
-    border:none;
-    border-radius:25px;
-    background:#ff2f6e;
-    color:white;
-    cursor:pointer;
-}
-
-/* MAIN CONTENT */
-#content{
-    display:none;
-}
-
-/* PHOTO */
-.photo-section{
-    position:relative;
-    width:100%;
-    height:100vh;
-}
-
-.photo-section img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.overlay-text{
-    position:absolute;
-    top:18%;
-    width:100%;
-    text-align:center;
-    color:#ff2f6e;
-    font-size:40px;
-    text-shadow:2px 2px 6px rgba(255,255,255,0.9);
-}
-
-/* LETTER */
-#letter{
-    background:white;
-    margin:25px;
-    padding:30px;
-    border-radius:30px;
-    font-size:22px;
-    line-height:1.6;
-}
-</style>
+  <title>Love You Babe ❤️</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      text-align: center;
+      font-family: Arial;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff3366;
+    }
+    img {
+      width: 250px;
+      border-radius: 15px;
+      margin: 20px;
+    }
+    .question {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="lock">
-    <h1>Whom do you love the most? 💕</h1>
-    <input type="text" id="password" placeholder="Type the answer">
-    <button onclick="unlock()">Unlock ❤️</button>
-</div>
+<h1>I Love You My Strawberry 🍓❤️</h1>
 
-<div id="content">
-    <div class="photo-section">
-        <img src="photo1.png" alt="Our Love">
-        <div class="overlay-text">
-            I love you my strawberry 🍓
-        </div>
-    </div>
+<img src="photo.jpg" alt="Our Photo">
 
-    <div id="letter">
-        My love ❤️<br><br>
-        You are my happiness, my peace, and my forever.
-        Every smile of yours means the world to me.
-        <br><br>
-        Always yours,<br>
-        <b>Impana 💕</b>
-    </div>
-</div>
+<p>My love, you are my everything. Thank you for being in my life 💖</p>
 
-<script>
-function unlock(){
-    const pass = document.getElementById("password").value.toLowerCase().trim();
-    if(pass === "impana"){
-        document.getElementById("lock").style.display="none";
-        document.getElementById("content").style.display="block";
-    } else {
-        alert("Wrong answer ❤️ Try again");
-    }
-}
-</script>
+<div class="question">1. Who loves you the most?</div>
+<p>Me 🥰</p>
+
+<div class="question">2. Who will always stay with you?</div>
+<p>Me forever ❤️</p>
+
+<div class="question">3. Are we getting married?</div>
+<p>Yes, obviously 😌💍</p>
 
 </body>
 </html>
