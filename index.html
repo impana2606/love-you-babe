@@ -16,6 +16,24 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- Heart Animation Styles --- */
+        .heart {
+            position: absolute;
+            color: #ffb6c1;
+            font-size: 20px;
+            animation: floatHeart 10s infinite linear;
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.7; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
         #login-screen, #content-screen {
@@ -26,6 +44,8 @@
             text-align: center;
             max-width: 600px;
             width: 100%;
+            position: relative;
+            z-index: 1; /* Puts content above animations */
         }
 
         #content-screen {
@@ -78,6 +98,19 @@
 </head>
 <body>
 
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 5 + 5 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 10000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+
     <div id="login-screen">
         <h2>Enter the Magic Password 💖</h2>
         <p>Who do you love the most in this world?</p>
@@ -90,7 +123,7 @@
     <div id="content-screen">
         <h1>I love you my strawberry 🍓</h1>
         
-        <img src="photo.jpg" alt="Our Photo" class="photo">
+        <img src="photo.jpg.png" alt="Our Photo" class="photo">
 
         <div class="letter">
 Hi mudduu ❤️
@@ -115,6 +148,8 @@ Always yours my baby😙
 Forever my strawberry 🍓😘
 Forever my 11 11 wish😌
 
+More years to go, babe! ❤️
+
 impii 💕
         </div>
     </div>
@@ -124,8 +159,8 @@ impii 💕
             // Converts input to lowercase to make it easier to match
             var password = document.getElementById("password").value.toLowerCase().trim();
             
-            // Set the password here (e.g., "impii")
-            if (password === "impii" || password === "impi") {
+            // PASSWORD SET TO: impana
+            if (password === "impana") {
                 document.getElementById("login-screen").style.display = "none";
                 document.getElementById("content-screen").style.display = "block";
             } else {
