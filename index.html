@@ -86,4 +86,49 @@ body{
     margin:25px;
     padding:30px;
     border-radius:30px;
-    fo
+    font-size:22px;
+    line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div id="lock">
+    <h1>Whom do you love the most? 💕</h1>
+    <input type="text" id="password" placeholder="Type the answer">
+    <button onclick="unlock()">Unlock ❤️</button>
+</div>
+
+<div id="content">
+    <div class="photo-section">
+        <img src="photo1.png" alt="Our Love">
+        <div class="overlay-text">
+            I love you my strawberry 🍓
+        </div>
+    </div>
+
+    <div id="letter">
+        My love ❤️<br><br>
+        You are my happiness, my peace, and my forever.
+        Every smile of yours means the world to me.
+        <br><br>
+        Always yours,<br>
+        <b>Impana 💕</b>
+    </div>
+</div>
+
+<script>
+function unlock(){
+    const pass = document.getElementById("password").value.toLowerCase().trim();
+    if(pass === "impana"){
+        document.getElementById("lock").style.display="none";
+        document.getElementById("content").style.display="block";
+    } else {
+        alert("Wrong answer ❤️ Try again");
+    }
+}
+</script>
+
+</body>
+</html>
