@@ -3,173 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Love Letter</title>
+  <title>Love You Babe ❤️</title>
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
       margin: 0;
-      padding: 20px;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .container {
-      background: #fff;
-      width: 100%;
-      max-width: 700px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    h1 {
-      text-align: center;
-      color: #e75480;
-      margin-bottom: 5px;
-    }
-    .love-link {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .love-link a {
-      text-decoration: none;
-      color: #d9436c;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    .section {
-      margin-bottom: 20px;
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 8px;
-    }
-    input[type="file"] {
-      width: 100%;
-    }
-    .preview {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .preview img {
-      width: 100%;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 2px solid #f2a2b8;
-    }
-    textarea {
-      width: 100%;
-      min-height: 150px;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      resize: vertical;
-      font-size: 14px;
-    }
-    button {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      background: #e75480;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #d9436c;
-    }
-    .saved {
-      margin-top: 15px;
-      padding: 10px;
-      background: #fef0f5;
-      border-radius: 8px;
-      display: none;
+      text-align: center;
+      overflow-x: hidden;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 22px;
-      }
-      .love-link a {
-        font-size: 14px;
-      }
+    h1 {
+      margin-top: 40px;
+      font-size: 2.2rem;
+    }
+
+    #message {
+      margin: 20px auto;
+      max-width: 600px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 600px;
+      height: 150px;
+      border-radius: 10px;
+      border: none;
+      padding: 15px;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+
+    input[type="file"] {
+      margin-top: 15px;
+    }
+
+    img {
+      max-width: 90%;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      color: #ff3366;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>💌 My Love Letter</h1>
-    <p class="love-link"><a href="#letterSection">Love you babe ❤️</a></p>
 
-    <div class="section">
-      <label for="images">Upload Pictures</label>
-      <input type="file" id="images" accept="image/*" multiple />
-      <div class="preview" id="preview"></div>
-    </div>
+<script>
+  const correctAnswer = "impana";
+  const userAnswer = prompt("💖 Whom do you love the most in this world?");
 
-    <div class="section" id="letterSection">
-      <label for="letter">Write Your Letter</label>
-      <textarea id="letter" placeholder="Dear love,\n\nWrite your feelings here..."></textarea>
-    </div>
+  if (!userAnswer || userAnswer.toLowerCase() !== correctAnswer) {
+    alert("❌ This love letter is private ❤️");
+    document.body.innerHTML = "";
+  } else {
+    alert("💞 You are my world 💞");
+  }
+</script>
 
-    <button onclick="saveLetter()">Save Letter</button>
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="saved" id="savedMessage">
-      <strong>Your letter is saved ❤️</strong>
-      <p id="savedText"></p>
-    </div>
-  </div>
+<h1>Love You Babe ❤️</h1>
 
-  <script>
-    const imagesInput = document.getElementById('images');
-    const preview = document.getElementById('preview');
+<div id="message">
+  <p id="typedText"></p>
+</div>
 
-    imagesInput.addEventListener('change', function () {
-      preview.innerHTML = '';
-      const files = imagesInput.files;
+<textarea placeholder="Write your love letter here..."></textarea><br>
 
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          preview.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-      }
-    });
+<input type="file" accept="image/*" onchange="loadImage(event)" />
+<br>
+<img id="preview" />
 
-    function saveLetter() {
-      const letterText = document.getElementById('letter').value;
-      if (letterText.trim() === '') {
-        alert('Please write something 💕');
-        return;
-      }
-      localStorage.setItem('loveLetter', letterText);
-      document.getElementById('savedText').innerText = letterText;
-      document.getElementById('savedMessage').style.display = 'block';
+<script>
+  const text = "This page is just for you. Every smile, every memory, every heartbeat of mine belongs to you. I love you more than words can ever explain.";
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typedText").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 50);
     }
+  }
+  typeEffect();
 
-    // Load saved letter if exists
-    window.onload = function () {
-      const saved = localStorage.getItem('loveLetter');
-      if (saved) {
-        document.getElementById('letter').value = saved;
-        document.getElementById('savedText').innerText = saved;
-        document.getElementById('savedMessage').style.display = 'block';
-      }
-    };
-  </script>
+  function loadImage(event) {
+    const img = document.getElementById("preview");
+    img.src = URL.createObjectURL(event.target.files[0]);
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+
+  setInterval(createHeart, 400);
+</script>
+
 </body>
 </html>
+
